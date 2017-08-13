@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "eslint-config-airbnb",
+        "eslint-config-prettier",
+        "eslint-config-prettier/react"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalDecorators": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "react/prefer-stateless-function": 0,
+        "react/no-find-dom-node": 0,
+        "react/prop-types": 0,
+        "import/no-extraneous-dependencies": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "react/jsx-wrap-multilines": 0,
+        "react/jsx-closing-bracket-location": 0,
+        "jsx-a11y/href-no-hash": 0,
+        "react/jsx-filename-extension": 0
+    }
+}
