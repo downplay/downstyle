@@ -24,7 +24,7 @@ function reduceElement(element, theme, names) {
         : element;
 }
 
-export default (element, theme, names, mapPropsToNames) => {
+export default (element, theme, names, mapPropsToTheme) => {
     const blockNames = typeof names === "string" ? [names] : names;
 
     // Swap out the element - only last matching provided counts
@@ -42,16 +42,21 @@ export default (element, theme, names, mapPropsToNames) => {
         let style = baseStyle;
         let className = baseClassName;
         let Element = baseElement;
-
-        if (mapPropsToNames) {
+        if (mapPropsToTheme) {
             const mappedNames = [];
-            Object.keys(mapPropsToNames).forEach(prop => {
-                if (others[prop]) {
-                    mappedNames.push(mapPropsToNames[prop]);
+            Object.keys(mapPropsToTheme).forEach(prop => {
+                if (Object.hasOwnProperty.call(others, prop)) {
+                    // Merge in the extra block if truthy
+                    if (others[prop]) {
+                        mappedNames.push(mapPropsToTheme[prop]);
+                    }
+                    // Don't pass prop onto rendered element
+                    // eslint-disable-next-line no-param-reassign
+                    delete others[prop];
                 }
             });
             if (mappedNames.length) {
-                className = `${baseClassName} ${mapClassNames(
+                className = `${baseClassName} asd ${mapClassNames(
                     theme,
                     mappedNames
                 )}`;

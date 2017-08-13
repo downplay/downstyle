@@ -1,7 +1,7 @@
 {
     "name": "downstyle",
     "description": "Minimal dependency theming system for React component authors",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "dist/downstyle.cjs.js",
     "module": "dist/downstyle.esm.js",
     "browser": "dist/downstyle.umd.js",

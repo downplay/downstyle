@@ -1,10 +1,8 @@
 import babel from "rollup-plugin-babel";
 import babelrc from "babelrc-rollup";
+import commonjs from "rollup-plugin-commonjs";
 
 import pkg from "./package.json";
-
-// import resolve from "rollup-plugin-node-resolve";
-// import commonjs from "rollup-plugin-commonjs";
 
 const plugins = [babel(babelrc({ addModuleOptions: false }))];
 
@@ -15,12 +13,11 @@ export default [
         dest: pkg.browser,
         format: "umd",
         moduleName: "downstyle",
-        plugins: plugins.concat(
-            [
-                // resolve(), // so Rollup can find `ms`
-                // commonjs() // so Rollup can convert `ms` to an ES module
-            ]
-        )
+        external: ["react"],
+        globals: {
+            react: "React"
+        },
+        plugins: [commonjs()].concat(plugins)
     },
 
     // CommonJS (for Node) and ES module (for bundlers) build.

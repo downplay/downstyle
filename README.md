@@ -203,3 +203,20 @@ Now, with very little code added, we have some powerful new functionality - the 
 This is the basic intro. If you find this useful, please let me know, and especially if find there are any requirements not covered by this system.
 
 For more examples of this being used in production, see the "Styling" example in Downright, where the menus are being customised using this system: https://github.com/downplay/downright/blob/master/examples/source/examples/Styling.jsx
+
+## Version History
+
+### 0.1.1
+
+- Properties specified in mapPropsToTheme are no longer passed to the rendered element
+- TODO: In some cases might an author might want these props available? Maybe add an option for this.
+
+### 0.1.0
+
+- First release
+
+## Copyright
+
+&copy;2017 Downplay Ltd
+
+Distributed under MIT license. See LICENSE for full details.
