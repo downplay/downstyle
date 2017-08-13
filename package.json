@@ -2,15 +2,20 @@
     "name": "downstyle",
     "description": "Minimal dependency theming system for React component authors",
     "version": "0.1.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/downplay/downstyle.git"
+    "main": "dist/downstyle.cjs.js",
+    "module": "dist/downstyle.esm.js",
+    "browser": "dist/downstyle.umd.js",
+    "scripts": {
+        "precommit": "lint-staged",
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "test": "node test/test.js",
+        "pretest": "npm run build"
     },
-    "main": "source/index.js",
-    "files": ["source"],
     "lint-staged": {
         "*.{js,jsx}": ["eslint", "git add"]
     },
+    "files": ["dist"],
     "keywords": [
         "react",
         "reactjs",
@@ -20,6 +25,12 @@
         "components",
         "developers"
     ],
+    "author": "Peter Hurst",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/downplay/downstyle.git"
+    },
     "peerDependencies": {
         "react": "^0.14.0 || ^15.0.0 || ^16.0.0"
     },
@@ -28,6 +39,7 @@
         "babel-eslint": "^7.2.3",
         "babel-loader": "^7.1.1",
         "babel-plugin-add-react-displayname": "^0.0.4",
+        "babel-plugin-external-helpers": "^6.22.0",
         "babel-plugin-module-resolver": "^2.7.1",
         "babel-plugin-syntax-dynamic-import": "^6.18.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
@@ -37,9 +49,12 @@
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-polyfill": "^6.23.0",
         "babel-preset-env": "^1.6.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-es2015-rollup": "^3.0.0",
         "babel-preset-react": "^6.24.1",
         "babel-register": "^6.24.1",
         "babel-runtime": "^6.25.0",
+        "babelrc-rollup": "^3.0.0",
         "cross-env": "^5.0.3",
         "eslint": "4.3.0",
         "eslint-config-airbnb": "^15.1.0",
@@ -50,7 +65,12 @@
         "eslint-plugin-react": "7.1.0",
         "husky": "^0.14.3",
         "lint-staged": "^4.0.3",
+        "mocha": "^3.5.0",
         "npm-run-all": "^4.0.2",
-        "react": "^15.6.1"
+        "react": "^15.6.1",
+        "rollup": "^0.47.2",
+        "rollup-plugin-babel": "^3.0.1",
+        "rollup-plugin-commonjs": "^8.1.0",
+        "rollup-plugin-node-resolve": "^3.0.0"
     }
 }

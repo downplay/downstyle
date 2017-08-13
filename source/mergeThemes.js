@@ -1,4 +1,4 @@
-function mergeThemes(theme1, theme2) {
+export default function mergeThemes(theme1, theme2) {
     // Clone theme 1 classes
     const classNames = { ...theme1.classNames };
     // Clone theme 1 styles (shallow)
@@ -6,15 +6,19 @@ function mergeThemes(theme1, theme2) {
     // Merge in theme 2
     Object.keys(theme2).forEach(name => {
         // Append classNames
-        classNames[name] = classNames[name] ? `${classNames[name]} ${theme2.className[name]}` : theme2.className[name];
+        classNames[name] = classNames[name]
+            ? `${classNames[name]} ${theme2.className[name]}`
+            : theme2.className[name];
         // Merge style props to new object
-        styles[name] = styles[name] ? {...styles[name], ...theme2.styles[name]} : theme2.styles[name];
+        styles[name] = styles[name]
+            ? { ...styles[name], ...theme2.styles[name] }
+            : theme2.styles[name];
     });
     // Put the theme together
     return {
         classNames,
         styles,
-        // Elements 
+        // Elements
         elements: { ...theme1.elements, ...theme2.elements }
-    }
+    };
 }
