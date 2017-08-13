@@ -38,6 +38,7 @@ Unfortunately, what happened next was my designer spent a week coming up with a 
 Downstyle provides a pretty simple helper method.
 
 ```jsx
+import { themed } from "downstyle";
 // Default rendering blocks
 const defaultWrapper = ({children, ...others}) => <div {...others}>{children}</div>;
 const defaultLabel = ({children, ...others}) => <label {...others}>{children}</label>;
@@ -127,7 +128,7 @@ class FormField extends Component {
         const {children, id, success, error, ...others} = this.props;
         const {focus} = this.state;
         return (
-            <div className={`${classNames.wrapper} ${focus?classNames.focus:''} ${error?classNames.error:''} ${success?classNames.success:''}`}>
+            <div className={`${classNames.wrapper} ${focus?classNames.focus:""} ${error?classNames.error:""} ${success?classNames.success:""}`}>
                 <label for={id} className={classNames.label}>{children}</label>
                 <input id={id} className={classNames.input} type="text" {...others} onFocus={this.onFocus} onBlur={this.onBlur}></input>
             </div>
@@ -160,6 +161,7 @@ Now to support theming, we have a lot of classNames to juggle! Also if we want t
 Luckily, downstyle has a really simple solution for this. When creating your themed elements, there is a 4th parameter called "mapPropsToTheme". This enables exactly this kind of scenario. The new component would be rewritten as follows:
 
 ```jsx
+import { themed } from "downstyle";
 // Default theme
 import classNames from "./FormField.css";
 const defaultTheme = { classNames };
