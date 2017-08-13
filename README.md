@@ -1,4 +1,4 @@
-# Downstyle v0.1.0
+# downstyle v0.1.1
 
 ## Minimal dependency theming system for React component authors
 
@@ -10,7 +10,7 @@
 
 While building [Downright](https://github.com/downplay/downwrite) I realised I would need to provide a way for other users of the component to customise how it looked. As a component author you will always want to provide a decent default look and feel so the component "just works" right out of the box; but as we all know, once we encounter real-life concerns, no component is ever going to be "just right" as-is. The font needs to change, the colours are wrong, basically you might have heard of this thing called "branding".
 
-Unfortunately React, despite being great at a great many things, really doesn't seem to have such a fantastic story when it comes to this all-too-common requirement. I could really find a comprehensive approach to this after quite some searching. 
+Unfortunately React, despite being great at a great many things, doesn't really have a comprehensive approach to this; there are numerous systems to deal with it, and component authors use a lot of different approaches.
 
 Of course this is a problem that has been solved by CSS since forever. You can ship your component with a stylesheet and use BEM classnames, and a developer can use global CSS to target any element they wish. This certainly gives a lot of flexibility, but is it good enough, and is it even the right approach?
 
@@ -157,7 +157,7 @@ We can also do nice transitions between these states.
 
 Now to support theming, we have a lot of classNames to juggle! Also if we want to support inline styles, we have loads of style objects to merge together, various classNames to conditionally concatenate, and we haven't even supported passing in a normal className prop for per-field variations.
 
-Luckily, Downstyle has a really simple solution for this. When creating your themed elements, there is a 4th parameter called "mapPropsToTheme". This enables exactly this kind of scenario. The new component would be rewritten as follows:
+Luckily, downstyle has a really simple solution for this. When creating your themed elements, there is a 4th parameter called "mapPropsToTheme". This enables exactly this kind of scenario. The new component would be rewritten as follows:
 
 ```jsx
 // Default theme
