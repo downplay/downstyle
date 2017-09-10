@@ -8,7 +8,7 @@
 
 ## Intro
 
-While building [Downright](https://github.com/downplay/downwrite) I realised I would need to provide a way for other users of the component to customise how it looked. As a component author you will always want to provide a decent default look and feel so the component "just works" right out of the box; but as we all know, once we encounter real-life concerns, no component is ever going to be "just right" as-is. The font needs to change, the colours are wrong, basically you might have heard of this thing called "branding".
+While building [Downright](https://github.com/downplay/downright) I realised I would need to provide a way for other users of the component to customise how it looked. As a component author you will always want to provide a decent default look and feel so the component "just works" right out of the box; but as we all know, once we encounter real-life concerns, no component is ever going to be "just right" as-is. The font needs to change, the colours are wrong, basically you might have heard of this thing called "branding".
 
 Unfortunately React, despite being great at a great many things, doesn't really have a comprehensive approach to this; there are numerous systems to deal with it, and component authors use a lot of different approaches.
 
